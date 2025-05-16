@@ -41,6 +41,7 @@ flowchart LR
     TrD --> TR([Training])
     TR --> TM(Trained Model)
     TeD --> |Weather, Icing data and SCADA loss from lead hour 0 if avaiable| MoPr(Model Predictions)
+    TM --> MoPr
     MoPr --> EvR(Evaluation Results)
     TeD --> |SCADA loss| EvR
 ```
