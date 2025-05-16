@@ -36,8 +36,9 @@ flowchart LR
 flowchart TD
     DSF[Data storage file] -->|2022-2023, 2024-2025| TrD[Training data]
     DSF -->|2023-2024| TeD[Test data]
-
+   
     TrD --> FT((Finetuning)) --> OM(Optimised model)
+    LF[Choice of Loss Function] --> FT
     OM --> TR((Training))
     TrD --> TR
     TR --> TM[Trained Model]
