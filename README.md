@@ -42,8 +42,9 @@ flowchart TD
     TrD --> TR
     TR --> TM[Trained Model]
     
-    TM --> MoPr[Model Predictions]
-    TeD -->|Weather, Icing data and SCADA loss lead hour 0| MoPr
+    TM --> PIL((Predicting Icing Loss))
+    TeD -->|Weather, Icing data and SCADA loss lead hour 0| PIL
+    PIL --> MoPr[Model Predictions]
     MoPr --> EvR[Evaluation Results]
     TeD -->|SCADA loss| EvR
 
