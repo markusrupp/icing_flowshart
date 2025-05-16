@@ -32,7 +32,7 @@ flowchart LR
 ## Flowchart 2: Model Training Pipeline
 
 ```mermaid
-flowchart LR
+flowchart TD
     DSF(Data storage file) -->|2022-2023, 2024-2025| TrD(training data)
     DSF -->|2023-2024| TeD(test data)
     TrD --> FT([Finetuning])
