@@ -23,7 +23,7 @@ flowchart LR
 
     SCADA -->|SCADA loss| DSF[Data storage file]
     MEPS --> DSF
-    MEPS --> IP((Icing Prediction))
+    MEPS --> IP[Icing Predictions]
     IM[Icing model] --> IP
     IP -->|Icing Forecast| DSF
 ```
