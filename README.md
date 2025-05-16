@@ -9,13 +9,13 @@ This repository contains flowcharts describing the data flow and model pipeline 
 ```mermaid
 flowchart LR
     subgraph DataSources
-        SCADA[SCADA data source]
-        MEPS[MEPS weather data source]
+        SCADA(SCADA data source)
+        MEPS(MEPS weather data source)
     end
 
-    SCADA -->|Icing loss| DSF[Data storage file]
+    SCADA -->|SCADA loss| DSF(Data storage file)
     MEPS --> DSF
-    MEPS --> IM[Icing model]
+    MEPS --> IM(Icing model)
     IM -->|Icing Forecast| DSF
 ```
 
@@ -24,10 +24,16 @@ flowchart LR
 ## Flowchart 2: Model Training Pipeline
 
 ```mermaid
-flowchart TD
-    RAW[Raw Weather Data] --> PREP[Preprocessing]
-    PREP --> TRAIN[Train Icing Model]
-    TRAIN --> EVAL[Evaluate Model]
-    EVAL --> DEPLOY[Deploy Model]
+flowchart LR
+    DSF(Data storage file) -->|2022-2023, 2024-2025| TrD(training data)
+    DSF -->|2023-2024| TeD(test data)
+    TrD -->FT([Finetuning])
+    FT --> OM(Optimised model)
+    OM --> TR([Training])
+    TrD --> TR([Training])
+    TR --> TM(Trained Model)
+    TeD --> |Weather + Icing data (+ SCADA loss from lead hour 0)|MoPr(Model Predictions)
+    MoPr --> EvR(Evaluation Results)
+    TeD --> |SCADA loss|EvR    
 ```
 
