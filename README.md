@@ -33,17 +33,18 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    DSF(Data storage file) -->|2022-2023, 2024-2025| TrD(training data)
-    DSF -->|2023-2024| TeD(test data)
-    TrD --> FT([Finetuning])
-    FT --> OM(Optimised model)
-    OM --> TR([Training])
-    TrD --> TR([Training])
-    TR --> TM(Trained Model)
-    TeD --> |Weather, Icing data and SCADA loss from lead hour 0 if avaiable| MoPr(Model Predictions)
-    TM --> MoPr
-    MoPr --> EvR(Evaluation Results)
-    TeD --> |SCADA loss| EvR
-```
+    DSF[Data storage file] -->|2022-2023, 2024-2025| TrD[Training data]
+    DSF -->|2023-2024| TeD[Test data]
+
+    TrD --> FT[Finetuning] --> OM[Optimised model]
+    OM --> TR[Training]
+    TrD --> TR
+    TR --> TM[Trained Model]
+
+    TM --> MoPr[Model Predictions]
+    TeD -->|Weather, Icing data and SCADA loss (if available)| MoPr
+    MoPr --> EvR[Evaluation Results]
+    TeD -->|SCADA loss| EvR
+
 
 
