@@ -42,7 +42,7 @@ flowchart TD
     TR --> TM[Trained Model]
 
     TM --> MoPr[Model Predictions]
-    TeD -->|Weather, Icing data and SCADA loss (if available)| MoPr
+    TeD -->|Weather, Icing data and SCADA loss if available| MoPr
     MoPr --> EvR[Evaluation Results]
     TeD -->|SCADA loss| EvR
 
