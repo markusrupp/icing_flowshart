@@ -25,7 +25,7 @@ flowchart LR
     MEPS --> DP((Data Preprocessing))
     DP --> DSF
     MEPS --> IM[Icing model]
-    IM -->|Icing Forecast| DSF
+    IM -->|Icing Intensity, Blade Ice Mass| DSF
 ```
 
 ---
