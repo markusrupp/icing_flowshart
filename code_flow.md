@@ -32,6 +32,11 @@ flowchart LR
         LFR[Model list]
     end
 
+    subgraph In evaluation files
+        EV(Evaluation of models)
+        EVR[Evaluation results]
+    end
+
 
 SCADA -->|read| CCSV
 SCADA -->|read| UCSV
@@ -47,4 +52,8 @@ LMF -->|save in runtime| LFR
 LFR -->|uses from runtime| TR
 TR -->|saves in runtime| LFR
 LFR -->|write| MF
+MS -->|read| EV
+CSV -->|read| EV
+MF --> |read| EV
+EV --> |output| EVR
 ```
