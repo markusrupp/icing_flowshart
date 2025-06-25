@@ -21,8 +21,8 @@ flowchart LR
         MS[Model Specification .json]
         MF[Trained Models .json or .pkl]
     end
-CCSV(run raw_preprocessing/create_data_file.csv) -->|write file| CSV
-UCSV(run raw_preprocessing/update_data_file.csv) -->|write file| CSV
-CSV -->|read file| UCSV
-    
+CCSV(run raw_preprocessing/create_data_file.csv) -->|write| CSV
+UCSV(run raw_preprocessing/update_data_file.csv) -->|write| CSV
+CSV -->|read| UCSV
+UMS(update manually) -->|write| MS
 ```
