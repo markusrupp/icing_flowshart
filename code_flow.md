@@ -1,21 +1,20 @@
 ```mermaid
 flowchart TD
-%% === Files ===
+
 subgraph Files
     CSV["CSV data file"]
     MODEL_JSON["Model spec JSON"]
     TRAINED_MODELS["Trained models (pkl/json)"]
 end
 
-%% === CSV creation and update ===
+
 A["1. Create CSV data file"] --> CSV
 CSV --> B["2. Update CSV data file"]
 B --> CSV  
 
-%% === Model specification setup ===
+
 C["3. Write model specs to JSON file"] --> MODEL_JSON
 
-%% === Execution script ===
 D["4. Run tune_and_train.py"]
 D --> E["5. Load CSV file for training"]
 E --> CSV
