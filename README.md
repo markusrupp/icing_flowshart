@@ -47,6 +47,9 @@ flowchart TD
     TeD -->|Weather, Icing data and SCADA loss lead hour 0| MoPr
     MoPr --> EvR[Evaluation Results]
     TeD -->|SCADA loss| EvR
+```
+
+## new one
 
 flowchart TD
 
@@ -84,8 +87,3 @@ flowchart TD
     J --> TRAINED_MODELS
 
     J --> K[🔎 11️⃣ Evaluate models]
-
-
-
-
-
