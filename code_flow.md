@@ -10,7 +10,7 @@ end
 %% === CSV creation and update ===
 A["1. Create CSV data file"] --> CSV
 CSV --> B["2. Update CSV data file"]
-B --> CSV  %% loop: update leads to new version of the same file
+B --> CSV  
 
 %% === Model specification setup ===
 C["3. Write model specs to JSON file"] --> MODEL_JSON
