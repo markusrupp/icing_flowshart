@@ -42,7 +42,7 @@ UCSV(run raw_preprocessing/update_data_file.csv) -->|write| CSV
 CSV -->|read| UCSV
 UMS(update manually) -->|write| MS
 CSV -->|read| LCSV
-MF -->|read| LMF
+MS -->|read| LMF
 LMF -->|save in runtime| LFR
 LFR -->|uses from runtime| TR
 TR -->|saves in runtime| LFR
