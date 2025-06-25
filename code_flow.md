@@ -36,8 +36,6 @@ flowchart LR
         EV(Evaluation of models)
         EVR[Evaluation results]
     end
-
-
 SCADA -->|read| CCSV
 SCADA -->|read| UCSV
 NWP -->|read| CCSV
