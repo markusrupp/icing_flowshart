@@ -25,7 +25,13 @@ flowchart LR
     end
     subgraph In tune_and_train.ipynb
         LCSV(load csv data)
+        LMF(load model specification to list of dictionaries)
+        FT(Finetuning)
+        TR(Training)
+        STR(Save trained models)
+        LFR[Model list]
     end
+
 
 SCADA -->|read| CCSV
 SCADA -->|read| UCSV
@@ -35,4 +41,10 @@ CCSV(run raw_preprocessing/create_data_file.csv) -->|write| CSV
 UCSV(run raw_preprocessing/update_data_file.csv) -->|write| CSV
 CSV -->|read| UCSV
 UMS(update manually) -->|write| MS
+CSV -->|read| LCSV
+MF -->|read| LMF
+LMF -->|save in runtime| LFR
+LFR -->|uses from runtime| TR
+TR -->|saves in runtime| LFR
+LFR -->|write| MF
 ```
