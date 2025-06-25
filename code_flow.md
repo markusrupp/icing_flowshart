@@ -1,5 +1,6 @@
-flowchart TD
+
 ```mermaid
+flowchart TD
 %% === Files ===
 subgraph Files
     CSV[CSV data file]
