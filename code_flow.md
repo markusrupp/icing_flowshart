@@ -27,6 +27,8 @@ flowchart LR
         LCSV(load csv data)
     end
 
+SCADA -->|read| CCSV
+SCADA -->|read| UCSV
 NWP -->|read| CCSV
 NWP -->|read| UCSV
 CCSV(run raw_preprocessing/create_data_file.csv) -->|write| CSV
