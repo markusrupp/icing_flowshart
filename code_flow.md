@@ -1,3 +1,5 @@
+## new one
+```mermaid
 flowchart TD
 
     %% === Files ===
@@ -28,10 +30,4 @@ flowchart TD
 
     G --> H[8️⃣ Tune models and update JSON]
     H --> MODEL_JSON
-
-    H --> I[9️⃣ Train models]
-    I --> J[🔽 Save trained models]
-    J --> TRAINED_MODELS
-
-    J --> K[🔎 11️⃣ Evaluate models]
-
+```mermaid
