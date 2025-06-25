@@ -27,7 +27,7 @@ flowchart TD
 
     D --> G[7️⃣ Load model specs into regressors]
     G --> MODEL_JSON
-
+```
     G --> H[8️⃣ Tune models and update JSON]
     H --> MODEL_JSON
 ```mermaid
