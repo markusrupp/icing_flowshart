@@ -4,7 +4,7 @@ flowchart TD
 subgraph Files
     CSV[CSV data file]
     MODEL_JSON[Model spec JSON]
-    TRAINED_MODELS[Trained models (.pkl/.json)]
+    TRAINED_MODELS["Trained models (.pkl &#47; .json)"]
 end
 
 %% === CSV creation and update ===
@@ -35,4 +35,6 @@ J --> TRAINED_MODELS
 
 J --> K[11. Evaluate models]
 K --> L[12. Done]
+```
+
 ```
