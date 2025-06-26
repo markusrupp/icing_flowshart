@@ -58,5 +58,3 @@ flowchart TB
 
     EV -->|output| EVR
 ```
-
-```
