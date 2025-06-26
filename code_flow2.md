@@ -1,12 +1,12 @@
 ```mermaid
-flowchart TB
+flowchart LR
     %% Stored Files
     subgraph Stored_Files
+        SCADA[SCADA .csv]
+        NWP[NWP .mat]
         CSV[Data File .csv]
         MS[Model Spec .json]
-        MF[Trained Models .json or .pkl]
-        SCADA[SCADA data .csv]
-        NWP[NWP forecast .mat]
+        MF[Trained Models .pkl or .json]
     end
 
     %% Preprocessing
@@ -16,11 +16,10 @@ flowchart TB
     end
 
     %% Notebook
-    subgraph tune_and_train_ipynb
-        LCSV[Load CSV data]
+    subgraph tune_and_train
+        LCSV[Load CSV]
         LMF[Load Model Spec]
         LFR[Model List]
-        FT[Finetuning]
         TR[Training]
         STR[Save Models]
     end
@@ -28,26 +27,29 @@ flowchart TB
     %% Evaluation
     subgraph Evaluation
         EV[Evaluate Models]
-        EVR[Evaluation Results]
+        EVR[Eval Results]
     end
 
-    %% Manual update
+    %% Manual
     UMS[Manual Update]
 
-    %% Data Flow
-    SCADA -->|read| CCSV
-    SCADA -->|read| UCSV
-    NWP -->|read| CCSV
-    NWP -->|read| UCSV
-    CCSV -->|write| CSV
-    UCSV -->|write| CSV
-    CSV -->|read| LCSV
-    MS -->|read| LMF
-    UMS -->|write| MS
+    %% Connections
+    SCADA --> CCSV
+    SCADA --> UCSV
+    NWP --> CCSV
+    NWP --> UCSV
+    CCSV --> CSV
+    UCSV --> CSV
+
+    CSV --> LCSV
+    MS --> LMF
+    UMS --> MS
+
     LMF --> LFR
     LFR --> TR
     TR --> LFR
-    LFR -->|write| MF
+    LFR --> MF
+
     CSV --> EV
     MS --> EV
     MF --> EV
