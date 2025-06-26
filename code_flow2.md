@@ -1,42 +1,42 @@
 ```mermaid
 flowchart TB
     %% Stored Files
-    subgraph Stored Files
+    subgraph "Stored Files"
         direction TB
-        CSV[Data File (.csv)]
-        MS[Model Specification (.json)]
-        MF[Trained Models (.json or .pkl)]
-        SCADA[SCADA data sources (.csv)]
-        NWP[NWP forecast sources (.mat)]
+        CSV["Data File .csv"]
+        MS["Model Specification .json"]
+        MF["Trained Models .json or .pkl"]
+        SCADA["SCADA data sources .csv"]
+        NWP["NWP forecast sources .mat"]
     end
 
     %% Preprocessing Step
-    subgraph Preprocessing
+    subgraph "Preprocessing"
         direction TB
-        CCSV[Create Data File]
-        UCSV[Update Data File]
+        CCSV["Create Data File"]
+        UCSV["Update Data File"]
     end
 
     %% Notebook: tune_and_train.ipynb
     subgraph "Notebook: tune_and_train.ipynb"
         direction TB
-        LCSV[Load CSV data]
-        LMF[Load model spec → dict list]
-        LFR[Model list]
-        FT[Finetuning]
-        TR[Training]
-        STR[Save trained models]
+        LCSV["Load CSV data"]
+        LMF["Load model spec → dict list"]
+        LFR["Model list"]
+        FT["Finetuning"]
+        TR["Training"]
+        STR["Save trained models"]
     end
 
     %% Evaluation files
     subgraph "Evaluation files"
         direction TB
-        EV[Evaluate models]
-        EVR[Evaluation results]
+        EV["Evaluate models"]
+        EVR["Evaluation results"]
     end
 
     %% Manual Update
-    UMS[Update Manually]
+    UMS["Manual update"]
 
     %% Data Flow
     SCADA -->|read| CCSV
@@ -56,4 +56,5 @@ flowchart TB
     MS -->|read| EV
     MF -->|read| EV
     EV -->|output| EVR
+
 ```
