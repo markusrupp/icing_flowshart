@@ -1,42 +1,38 @@
 ```mermaid
 flowchart TB
     %% Stored Files
-    subgraph "Stored Files"
-        direction TB
-        CSV["Data File .csv"]
-        MS["Model Specification .json"]
-        MF["Trained Models .json or .pkl"]
-        SCADA["SCADA data sources .csv"]
-        NWP["NWP forecast sources .mat"]
+    subgraph Stored_Files
+        CSV[Data File .csv]
+        MS[Model Spec .json]
+        MF[Trained Models .json or .pkl]
+        SCADA[SCADA data .csv]
+        NWP[NWP forecast .mat]
     end
 
-    %% Preprocessing Step
-    subgraph "Preprocessing"
-        direction TB
-        CCSV["Create Data File"]
-        UCSV["Update Data File"]
+    %% Preprocessing
+    subgraph Preprocessing
+        CCSV[Create Data File]
+        UCSV[Update Data File]
     end
 
-    %% Notebook: tune_and_train.ipynb
-    subgraph "Notebook: tune_and_train.ipynb"
-        direction TB
-        LCSV["Load CSV data"]
-        LMF["Load model spec → dict list"]
-        LFR["Model list"]
-        FT["Finetuning"]
-        TR["Training"]
-        STR["Save trained models"]
+    %% Notebook
+    subgraph tune_and_train_ipynb
+        LCSV[Load CSV data]
+        LMF[Load Model Spec]
+        LFR[Model List]
+        FT[Finetuning]
+        TR[Training]
+        STR[Save Models]
     end
 
-    %% Evaluation files
-    subgraph "Evaluation files"
-        direction TB
-        EV["Evaluate models"]
-        EVR["Evaluation results"]
+    %% Evaluation
+    subgraph Evaluation
+        EV[Evaluate Models]
+        EVR[Evaluation Results]
     end
 
-    %% Manual Update
-    UMS["Manual update"]
+    %% Manual update
+    UMS[Manual Update]
 
     %% Data Flow
     SCADA -->|read| CCSV
@@ -48,13 +44,12 @@ flowchart TB
     CSV -->|read| LCSV
     MS -->|read| LMF
     UMS -->|write| MS
-    LMF -->|save at runtime| LFR
-    LFR -->|used by| TR
-    TR -->|save at runtime| LFR
+    LMF --> LFR
+    LFR --> TR
+    TR --> LFR
     LFR -->|write| MF
-    CSV -->|read| EV
-    MS -->|read| EV
-    MF -->|read| EV
-
-    EV -->|output| EVR
+    CSV --> EV
+    MS --> EV
+    MF --> EV
+    EV --> EVR
 ```
